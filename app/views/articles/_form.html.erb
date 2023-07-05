@@ -26,6 +26,11 @@
     <%= form.text_field :excerpt %>
   </div>
 
+  <div class="field">
+    <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+      <% b.label { b.check_box + b.text } %>
+    <% end %>
+ </div>
   <div>
     <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body %>
@@ -36,7 +41,9 @@
     <%= form.datetime_field :published_at %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+
+  
+ <div class="actions">
+    <%= submit_or_cancel(form) %>
+ </div> 
 <% end %>

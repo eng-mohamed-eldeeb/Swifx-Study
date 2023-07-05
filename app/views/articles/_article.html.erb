@@ -1,27 +1,31 @@
 <div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
+ <% if article.owned_by? current_user %>
+    <p>
+      <strong>Title:</strong>
+      <%= article.title %>
+    </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= article.location %>
-  </p>
+    <p>
+      <strong>Location:</strong>
+      <%= article.location %>
+    </p>
 
-  <p>
-    <strong>Excerpt:</strong>
-    <%= article.excerpt %>
-  </p>
+    <p>
+      <strong>Excerpt:</strong>
+      <%= article.excerpt %>
+    </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= article.body %>
-  </p>
+    <p>
+      <strong>Body:</strong>
+      <%= article.body %>
+    </p>
 
-  <p>
-    <strong>Published at:</strong>
-    <%= article.published_at %>
-  </p>
+    <p>
+      <strong>Published at:</strong>
+      <%= article.published_at %>
+    </p>
+  <% end %>
+
+ <%= simple_format article.body %>
 
 </div>
